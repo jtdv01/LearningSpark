@@ -84,4 +84,13 @@ val result = lines.flatMap(x => x.split(" "))
 println(result.first()) // Hello
 ```
 
-# 
+----------
+# Persistence / Caching
+
+```java
+import org.apache.spark.storage.StorageLevel
+val result = input.map(x => x*x)
+result.persist(StoraveLeve.DISK_ONLY)
+println(result.count())
+println(result.collect().mkString(","))
+```
